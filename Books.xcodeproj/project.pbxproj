@@ -20,6 +20,11 @@
 		BE8049DC2DAA61670021012A /* String.Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8049DB2DAA61670021012A /* String.Ext.swift */; };
 		BE8049E02DAA7E720021012A /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8049DF2DAA7E720021012A /* CustomFont.swift */; };
 		BE8049E32DAA7FCE0021012A /* View.Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8049E22DAA7FCE0021012A /* View.Ext.swift */; };
+		BE804A0C2DABFF2B0021012A /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE804A0B2DABFF2B0021012A /* OrangeButton.swift */; };
+		BE804A122DAC07C60021012A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE804A112DAC07C60021012A /* OnboardingView.swift */; };
+		BE804A142DAC08400021012A /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE804A132DAC08400021012A /* OnboardingViewPresenter.swift */; };
+		BE804A162DAC0B350021012A /* OnboardingViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE804A152DAC0B350021012A /* OnboardingViewContent.swift */; };
+		BE804A182DAC252E0021012A /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE804A172DAC252E0021012A /* OnboardingData.swift */; };
 		BEB0CDAE2DA94E6800312F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0CDAD2DA94E6800312F96 /* AppDelegate.swift */; };
 		BEB0CDB02DA94E6800312F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0CDAF2DA94E6800312F96 /* SceneDelegate.swift */; };
 		BEB0CDB72DA94E6B00312F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB0CDB62DA94E6B00312F96 /* Assets.xcassets */; };
@@ -39,6 +44,11 @@
 		BE8049DB2DAA61670021012A /* String.Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.Ext.swift; sourceTree = "<group>"; };
 		BE8049DF2DAA7E720021012A /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		BE8049E22DAA7FCE0021012A /* View.Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.Ext.swift; sourceTree = "<group>"; };
+		BE804A0B2DABFF2B0021012A /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		BE804A112DAC07C60021012A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BE804A132DAC08400021012A /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
+		BE804A152DAC0B350021012A /* OnboardingViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewContent.swift; sourceTree = "<group>"; };
+		BE804A172DAC252E0021012A /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		BEB0CDAA2DA94E6800312F96 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB0CDAD2DA94E6800312F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB0CDAF2DA94E6800312F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +80,7 @@
 		BE8049C42DA9960F0021012A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BE804A0A2DABFEFD0021012A /* Buttons */,
 				BE8049DD2DAA7E3D0021012A /* Modifiers */,
 				BE8049C52DA9961C0021012A /* Extensions */,
 			);
@@ -91,6 +102,7 @@
 			children = (
 				BE8049C92DA997BE0021012A /* PreviewView */,
 				BE8049CD2DA99F660021012A /* RegistrationView */,
+				BE804A0D2DAC05AF0021012A /* OnboardingView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -183,6 +195,49 @@
 				BE8049E22DAA7FCE0021012A /* View.Ext.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BE804A0A2DABFEFD0021012A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				BE804A0B2DABFF2B0021012A /* OrangeButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		BE804A0D2DAC05AF0021012A /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				BE804A102DAC073E0021012A /* Model */,
+				BE804A0E2DAC05BE0021012A /* View */,
+				BE804A0F2DAC05C40021012A /* Presenter */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
+		BE804A0E2DAC05BE0021012A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE804A112DAC07C60021012A /* OnboardingView.swift */,
+				BE804A152DAC0B350021012A /* OnboardingViewContent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE804A0F2DAC05C40021012A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BE804A132DAC08400021012A /* OnboardingViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BE804A102DAC073E0021012A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE804A172DAC252E0021012A /* OnboardingData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BEB0CDA12DA94E6800312F96 = {
@@ -306,6 +361,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB0CDAE2DA94E6800312F96 /* AppDelegate.swift in Sources */,
+				BE804A0C2DABFF2B0021012A /* OrangeButton.swift in Sources */,
+				BE804A142DAC08400021012A /* OnboardingViewPresenter.swift in Sources */,
 				BE8049D22DA99FD70021012A /* Builder.swift in Sources */,
 				BE8049C32DA9932F0021012A /* FontManager.swift in Sources */,
 				BE8049E32DAA7FCE0021012A /* View.Ext.swift in Sources */,
@@ -315,8 +372,11 @@
 				BE8049E02DAA7E720021012A /* CustomFont.swift in Sources */,
 				BE8049CC2DA998390021012A /* PreviewView.swift in Sources */,
 				BE8049DC2DAA61670021012A /* String.Ext.swift in Sources */,
+				BE804A182DAC252E0021012A /* OnboardingData.swift in Sources */,
 				BE8049D42DAA56320021012A /* RegistrationView.swift in Sources */,
 				BE8049D82DAA59D50021012A /* RegistrationViewContent.swift in Sources */,
+				BE804A122DAC07C60021012A /* OnboardingView.swift in Sources */,
+				BE804A162DAC0B350021012A /* OnboardingViewContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

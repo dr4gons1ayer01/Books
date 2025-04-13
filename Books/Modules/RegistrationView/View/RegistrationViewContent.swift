@@ -10,6 +10,7 @@ import SwiftUI
 struct RegistrationViewContent: View {
     @State var nameField = ""
     var buttonAction: (String) -> Void
+    
     var body: some View {
         ZStack {
             VStack {
@@ -26,16 +27,8 @@ struct RegistrationViewContent: View {
                     .foregroundStyle(.white)
                     .clipShape(.rect(cornerRadius: 10))
                 Spacer()
-                Button {
+                OrangeButton(title: "Далее") {
                     buttonAction(nameField)
-                } label: {
-                    Text("Далее")
-                        .font(type: .medium, size: 16)
-                        .padding(.vertical, 19)
-                        .frame(maxWidth: .infinity)
-                        .background(.appOrange)
-                        .foregroundStyle(.white)
-                        .clipShape(.rect(cornerRadius: 10))
                 }
             }
             .padding(.horizontal, 30)

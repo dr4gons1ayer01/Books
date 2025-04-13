@@ -8,7 +8,7 @@
 import UIKit
 
 enum WindowCase {
-    case preview, registration, onboarding, main
+    case registration, onboarding, main
 }
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -33,8 +33,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         switch window {
-        default:
+        case .registration:
             self.window?.rootViewController = Builder.createRegistrationView()
+        case .onboarding:
+            self.window?.rootViewController = Builder.createOnboardingView()
+        case .main:
+            print("main")
         }
     }
 }

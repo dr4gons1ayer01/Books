@@ -1,27 +1,27 @@
 //
-//  RegistrationView.swift
+//  OnboardingView.swift
 //  Books
 //
-//  Created by Иван Семенов on 12.04.2025.
+//  Created by Иван Семенов on 13.04.2025.
 //
 
 import UIKit
 import SwiftUI
 
-protocol RegistrationViewProtocol: BaseViewProtocol {
+protocol OnboardingViewProtocol: BaseViewProtocol {
     
 }
 
-class RegistrationView: UIViewController, RegistrationViewProtocol {
-    typealias PresenterType = RegistrationViewPresenterProtocol
+class OnboardingView: UIViewController, OnboardingViewProtocol {
+    typealias PresenterType = OnboardingViewPresenterProtocol
     var presenter: PresenterType?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = RegistrationViewContent { [weak self] in
+        let contentView = OnboardingViewContent(slides: presenter?.mockData ?? []) { [weak self] in
             guard let self = self else { return }
-            presenter?.checkName(name: $0)
+            presenter?.startApp()
         }
         
         let content = UIHostingController(rootView: contentView)
