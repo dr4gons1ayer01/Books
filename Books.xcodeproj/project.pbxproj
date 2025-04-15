@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE34E1C42DAE915900E6E5FF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C32DAE915900E6E5FF /* MainView.swift */; };
+		BE34E1C62DAE916C00E6E5FF /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */; };
+		BE34E1C82DAE918800E6E5FF /* MainViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */; };
 		BE8049BA2DA958890021012A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE8049B92DA958890021012A /* Lottie */; };
 		BE8049BD2DA9597A0021012A /* Jost.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE8049BC2DA9597A0021012A /* Jost.ttf */; };
 		BE8049C12DA95D6F0021012A /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = BE8049C02DA95D6F0021012A /* books.json */; };
@@ -38,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE34E1C32DAE915900E6E5FF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewContent.swift; sourceTree = "<group>"; };
 		BE8049BC2DA9597A0021012A /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
 		BE8049C02DA95D6F0021012A /* books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books.json; sourceTree = "<group>"; };
 		BE8049C22DA9932F0021012A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -81,6 +87,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE34E1BF2DAE90DA00E6E5FF /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				BE34E1C22DAE911200E6E5FF /* Model */,
+				BE34E1C12DAE910900E6E5FF /* View */,
+				BE34E1C02DAE90FD00E6E5FF /* Presenter */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		BE34E1C02DAE90FD00E6E5FF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BE34E1C12DAE910900E6E5FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE34E1C32DAE915900E6E5FF /* MainView.swift */,
+				BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE34E1C22DAE911200E6E5FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BE8049BB2DA958A20021012A /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +156,7 @@
 				BE8049C92DA997BE0021012A /* PreviewView */,
 				BE8049CD2DA99F660021012A /* RegistrationView */,
 				BE804A0D2DAC05AF0021012A /* OnboardingView */,
+				BE34E1BF2DAE90DA00E6E5FF /* MainView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -419,6 +460,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEE7C65D2DAE4E0E0081EABF /* BookStatus.swift in Sources */,
+				BE34E1C42DAE915900E6E5FF /* MainView.swift in Sources */,
+				BE34E1C62DAE916C00E6E5FF /* MainViewPresenter.swift in Sources */,
 				BEB0CDAE2DA94E6800312F96 /* AppDelegate.swift in Sources */,
 				BE804A0C2DABFF2B0021012A /* OrangeButton.swift in Sources */,
 				BE804A142DAC08400021012A /* OnboardingViewPresenter.swift in Sources */,
@@ -427,6 +470,7 @@
 				BE8049E32DAA7FCE0021012A /* View.Ext.swift in Sources */,
 				BE8049D62DAA57150021012A /* RegistrationViewPresenter.swift in Sources */,
 				BE8049C72DA996490021012A /* Notification.Name.Ext.swift in Sources */,
+				BE34E1C82DAE918800E6E5FF /* MainViewContent.swift in Sources */,
 				BEE7C6592DAE47C90081EABF /* Book+CoreDataClass.swift in Sources */,
 				BEB0CDB02DA94E6800312F96 /* SceneDelegate.swift in Sources */,
 				BE8049E02DAA7E720021012A /* CustomFont.swift in Sources */,

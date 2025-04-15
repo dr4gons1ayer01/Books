@@ -21,12 +21,12 @@ class RegistrationViewPresenter: RegistrationViewPresenterProtocol {
     
     func checkName(name: String) {
         if name.count >= 2 {
-//            UserDefaults.standard.set(name, forKey: "name")
+            UserDefaults.standard.set(WindowCase.onboarding.rawValue.hashValue, forKey: "state")
+            UserDefaults.standard.set(name, forKey: "name")
             NotificationCenter.default.post(name: .windowManager,
                                             object: nil,
                                             userInfo: [String.windowInfo : WindowCase.onboarding])
         } else {
-            //todo alert
             print("Error name")
         }
     }

@@ -25,15 +25,19 @@ class Builder {
     
     static func createRegistrationView() -> UIViewController {
         return self.createView(viewType: RegistrationView.self) { view in
-            //presenter
             RegistrationViewPresenter(view: view)
         }
     }
     
     static func createOnboardingView() -> UIViewController {
         return self.createView(viewType: OnboardingView.self) { view in
-            //presenter
             OnboardingViewPresenter(view: view)
+        }
+    }
+    
+    static func createMainView() -> UIViewController {
+        return self.createView(viewType: MainView.self) { view in
+            MainViewPresenter(view: view)
         }
     }
 }
