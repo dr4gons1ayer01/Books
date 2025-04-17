@@ -10,6 +10,7 @@
 		BE34E1C42DAE915900E6E5FF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C32DAE915900E6E5FF /* MainView.swift */; };
 		BE34E1C62DAE916C00E6E5FF /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */; };
 		BE34E1C82DAE918800E6E5FF /* MainViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */; };
+		BE7900ED2DB0358100D12D30 /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7900EC2DB0358100D12D30 /* BaseTextView.swift */; };
 		BE8049BA2DA958890021012A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE8049B92DA958890021012A /* Lottie */; };
 		BE8049BD2DA9597A0021012A /* Jost.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE8049BC2DA9597A0021012A /* Jost.ttf */; };
 		BE8049C12DA95D6F0021012A /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = BE8049C02DA95D6F0021012A /* books.json */; };
@@ -44,6 +45,7 @@
 		BE34E1C32DAE915900E6E5FF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewContent.swift; sourceTree = "<group>"; };
+		BE7900EC2DB0358100D12D30 /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
 		BE8049BC2DA9597A0021012A /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
 		BE8049C02DA95D6F0021012A /* books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books.json; sourceTree = "<group>"; };
 		BE8049C22DA9932F0021012A /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BE7900EB2DB0352D00D12D30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE7900EC2DB0358100D12D30 /* BaseTextView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BE8049BB2DA958A20021012A /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 				BE804A0A2DABFEFD0021012A /* Buttons */,
 				BE8049DD2DAA7E3D0021012A /* Modifiers */,
 				BE8049C52DA9961C0021012A /* Extensions */,
+				BE7900EB2DB0352D00D12D30 /* View */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -482,6 +493,7 @@
 				BE804A182DAC252E0021012A /* OnboardingData.swift in Sources */,
 				BE8049D42DAA56320021012A /* RegistrationView.swift in Sources */,
 				BE8049D82DAA59D50021012A /* RegistrationViewContent.swift in Sources */,
+				BE7900ED2DB0358100D12D30 /* BaseTextView.swift in Sources */,
 				BE804A122DAC07C60021012A /* OnboardingView.swift in Sources */,
 				BE804A162DAC0B350021012A /* OnboardingViewContent.swift in Sources */,
 				BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */,

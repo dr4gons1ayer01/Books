@@ -8,14 +8,16 @@
 import Foundation
 
 protocol MainViewPresenterProtocol: AnyObject {
-    
+    var name: String { get }
 }
 
 class MainViewPresenter: MainViewPresenterProtocol {
-    
+        
     weak var view: (any MainViewProtocol)?
+    var name: String
     
     init(view: any MainViewProtocol) {
         self.view = view
+        self.name = UserDefaults.standard.string(forKey: "name") ?? ""
     }
 }

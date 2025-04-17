@@ -19,8 +19,7 @@ class MainView: UIViewController, MainViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(UserDefaults.standard.string(forKey: "name"))
-        let contentView = MainViewContent()
+        let contentView = MainViewContent(name: presenter?.name ?? "")
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)
