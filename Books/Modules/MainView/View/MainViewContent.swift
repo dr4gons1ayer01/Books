@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+enum SelectedCategory {
+    case willRead
+    case didRead
+}
+
 struct MainViewContent: View {
-    @State var searchField = ""
+    @State private var searchField = ""
+    @State private var selectedCategory: SelectedCategory = .willRead
     //var books: [Book]
     var name: String
     
@@ -91,7 +97,37 @@ struct MainViewContent: View {
                         }
                     }
                     
-                    
+                    //MARK: Will/Did Read
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .bottom, spacing: 26) {
+                            Button {
+                                selectedCategory = .willRead
+                            } label: {
+                                createButtonText(text: "Прочитать", category: .willRead)
+                            }
+                            Button {
+                                selectedCategory = .didRead
+                            } label: {
+                                createButtonText(text: "Прочитал", category: .didRead)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        if selectedCategory == .willRead {
+                            VStack(spacing: 20) {
+                                BookItem()
+                                BookItem()
+                            }
+                        } else {
+                            VStack(spacing: 20) {
+                                BookItem()
+                                BookItem()
+                                BookItem()
+                                BookItem()
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 30)
                 }
             }
             //.ignoresSafeArea()
@@ -99,8 +135,40 @@ struct MainViewContent: View {
             .background(.bgMain)
         }
     }
+    @ViewBuilder
+    func createButtonText(text: String, category: SelectedCategory) -> some View {
+        var condition = selectedCategory == category
+        
+        Text(text)
+            .font(type: condition ? .black : .bold, size: condition ? 22 : 20)
+            .foregroundStyle(condition ? .white : .appGrey)
+    }
 }
 
 #Preview {
     MainViewContent(name: "Ivan Semenov")
+}
+
+struct BookItem: View {
+    //var book: Book
+    var body: some View {
+        HStack(spacing: 13) {
+            Image(.cover)
+                .resizable()
+                .frame(width: 64, height: 94)
+                .clipShape(.rect(cornerRadius: 3))
+            VStack(alignment: .leading, spacing: 9) {
+                VStack(alignment: .leading) {
+                    Text("Война и мир")
+                        .font(type: .bold, size: 14)
+                    Text("Лев Толстой")
+                        .font(type: .medium, size: 12)
+                        .foregroundStyle(.appGrey)
+                }
+                Text("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ...")
+                    .font(type: .medium, size: 14)
+            }
+            .foregroundStyle(.white)
+        }
+    }
 }
