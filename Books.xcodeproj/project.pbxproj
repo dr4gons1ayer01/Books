@@ -38,6 +38,15 @@
 		BECD105C2DB248C000C6E76C /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD105B2DB248C000C6E76C /* DetailsView.swift */; };
 		BECD105F2DB4235000C6E76C /* BookStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD105E2DB4235000C6E76C /* BookStatusButton.swift */; };
 		BECD10612DB615AC00C6E76C /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10602DB615AC00C6E76C /* CommentView.swift */; };
+		BECD106C2DB6179000C6E76C /* AddBookViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD106B2DB6179000C6E76C /* AddBookViewPresenter.swift */; };
+		BECD106E2DB617DE00C6E76C /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD106D2DB617DE00C6E76C /* AddBookView.swift */; };
+		BECD10702DB6186C00C6E76C /* AddBookViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD106F2DB6186C00C6E76C /* AddBookViewContent.swift */; };
+		BECD10722DB61B3700C6E76C /* BookListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10712DB61B3700C6E76C /* BookListViewPresenter.swift */; };
+		BECD10742DB61B7500C6E76C /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10732DB61B7500C6E76C /* BookListView.swift */; };
+		BECD10762DB61BFA00C6E76C /* BookListViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10752DB61BFA00C6E76C /* BookListViewContent.swift */; };
+		BECD10782DB61DD200C6E76C /* AddDetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10772DB61DD200C6E76C /* AddDetailsViewPresenter.swift */; };
+		BECD107A2DB61E3A00C6E76C /* AddDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10792DB61E3A00C6E76C /* AddDetailsView.swift */; };
+		BECD107C2DB61E6E00C6E76C /* AddDetailsViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */; };
 		BEE7C6482DAD52E20081EABF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */; };
 		BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6492DAD54400081EABF /* db.xcdatamodeld */; };
 		BEE7C6522DAD5BAD0081EABF /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */; };
@@ -79,6 +88,15 @@
 		BECD105B2DB248C000C6E76C /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		BECD105E2DB4235000C6E76C /* BookStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStatusButton.swift; sourceTree = "<group>"; };
 		BECD10602DB615AC00C6E76C /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		BECD106B2DB6179000C6E76C /* AddBookViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewPresenter.swift; sourceTree = "<group>"; };
+		BECD106D2DB617DE00C6E76C /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		BECD106F2DB6186C00C6E76C /* AddBookViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewContent.swift; sourceTree = "<group>"; };
+		BECD10712DB61B3700C6E76C /* BookListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewPresenter.swift; sourceTree = "<group>"; };
+		BECD10732DB61B7500C6E76C /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		BECD10752DB61BFA00C6E76C /* BookListViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewContent.swift; sourceTree = "<group>"; };
+		BECD10772DB61DD200C6E76C /* AddDetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsViewPresenter.swift; sourceTree = "<group>"; };
+		BECD10792DB61E3A00C6E76C /* AddDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsView.swift; sourceTree = "<group>"; };
+		BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsViewContent.swift; sourceTree = "<group>"; };
 		BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		BEE7C64A2DAD54400081EABF /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -179,6 +197,9 @@
 				BE804A0D2DAC05AF0021012A /* OnboardingView */,
 				BE34E1BF2DAE90DA00E6E5FF /* MainView */,
 				BECD10532DB247E100C6E76C /* DetailsView */,
+				BECD10622DB616AC00C6E76C /* AddBookView */,
+				BECD10632DB616CB00C6E76C /* BookListView */,
+				BECD10642DB616DB00C6E76C /* AddDetailsView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -404,6 +425,84 @@
 			path = Parts;
 			sourceTree = "<group>";
 		};
+		BECD10622DB616AC00C6E76C /* AddBookView */ = {
+			isa = PBXGroup;
+			children = (
+				BECD106A2DB6177A00C6E76C /* View */,
+				BECD10652DB6175200C6E76C /* Presenter */,
+			);
+			path = AddBookView;
+			sourceTree = "<group>";
+		};
+		BECD10632DB616CB00C6E76C /* BookListView */ = {
+			isa = PBXGroup;
+			children = (
+				BECD10692DB6177000C6E76C /* View */,
+				BECD10662DB6175900C6E76C /* Presenter */,
+			);
+			path = BookListView;
+			sourceTree = "<group>";
+		};
+		BECD10642DB616DB00C6E76C /* AddDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				BECD10682DB6176A00C6E76C /* View */,
+				BECD10672DB6175E00C6E76C /* Presenter */,
+			);
+			path = AddDetailsView;
+			sourceTree = "<group>";
+		};
+		BECD10652DB6175200C6E76C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BECD106B2DB6179000C6E76C /* AddBookViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BECD10662DB6175900C6E76C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BECD10712DB61B3700C6E76C /* BookListViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BECD10672DB6175E00C6E76C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BECD10772DB61DD200C6E76C /* AddDetailsViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BECD10682DB6176A00C6E76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BECD10792DB61E3A00C6E76C /* AddDetailsView.swift */,
+				BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BECD10692DB6177000C6E76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BECD10732DB61B7500C6E76C /* BookListView.swift */,
+				BECD10752DB61BFA00C6E76C /* BookListViewContent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BECD106A2DB6177A00C6E76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BECD106D2DB617DE00C6E76C /* AddBookView.swift */,
+				BECD106F2DB6186C00C6E76C /* AddBookViewContent.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BEE7C6442DAD52A00081EABF /* DataBaseManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +629,8 @@
 				BE34E1C62DAE916C00E6E5FF /* MainViewPresenter.swift in Sources */,
 				BEB0CDAE2DA94E6800312F96 /* AppDelegate.swift in Sources */,
 				BE804A0C2DABFF2B0021012A /* OrangeButton.swift in Sources */,
+				BECD10742DB61B7500C6E76C /* BookListView.swift in Sources */,
+				BECD106C2DB6179000C6E76C /* AddBookViewPresenter.swift in Sources */,
 				BECD105A2DB2486F00C6E76C /* DetailsViewContent.swift in Sources */,
 				BE804A142DAC08400021012A /* OnboardingViewPresenter.swift in Sources */,
 				BE8049D22DA99FD70021012A /* Builder.swift in Sources */,
@@ -540,23 +641,30 @@
 				BECD105F2DB4235000C6E76C /* BookStatusButton.swift in Sources */,
 				BECD10582DB2483D00C6E76C /* DetailsViewPresenter.swift in Sources */,
 				BE8049C72DA996490021012A /* Notification.Name.Ext.swift in Sources */,
+				BECD107C2DB61E6E00C6E76C /* AddDetailsViewContent.swift in Sources */,
+				BECD10722DB61B3700C6E76C /* BookListViewPresenter.swift in Sources */,
 				BE34E1C82DAE918800E6E5FF /* MainViewContent.swift in Sources */,
+				BECD10762DB61BFA00C6E76C /* BookListViewContent.swift in Sources */,
 				BEE7C6592DAE47C90081EABF /* Book+CoreDataClass.swift in Sources */,
 				BEB0CDB02DA94E6800312F96 /* SceneDelegate.swift in Sources */,
 				BE8049E02DAA7E720021012A /* CustomFont.swift in Sources */,
 				BEE7C6482DAD52E20081EABF /* DataBaseManager.swift in Sources */,
 				BEE7C6522DAD5BAD0081EABF /* Note+CoreDataClass.swift in Sources */,
+				BECD107A2DB61E3A00C6E76C /* AddDetailsView.swift in Sources */,
 				BEE7C6562DAE47480081EABF /* StorageManager.swift in Sources */,
 				BE8049CC2DA998390021012A /* PreviewView.swift in Sources */,
 				BE8049DC2DAA61670021012A /* String.Ext.swift in Sources */,
 				BE804A182DAC252E0021012A /* OnboardingData.swift in Sources */,
 				BE8049D42DAA56320021012A /* RegistrationView.swift in Sources */,
 				BECD10612DB615AC00C6E76C /* CommentView.swift in Sources */,
+				BECD10782DB61DD200C6E76C /* AddDetailsViewPresenter.swift in Sources */,
 				BE8049D82DAA59D50021012A /* RegistrationViewContent.swift in Sources */,
 				BE7900ED2DB0358100D12D30 /* BaseTextView.swift in Sources */,
 				BE804A122DAC07C60021012A /* OnboardingView.swift in Sources */,
 				BE804A162DAC0B350021012A /* OnboardingViewContent.swift in Sources */,
 				BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */,
+				BECD106E2DB617DE00C6E76C /* AddBookView.swift in Sources */,
+				BECD10702DB6186C00C6E76C /* AddBookViewContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
