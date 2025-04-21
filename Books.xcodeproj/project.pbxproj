@@ -47,6 +47,7 @@
 		BECD10782DB61DD200C6E76C /* AddDetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10772DB61DD200C6E76C /* AddDetailsViewPresenter.swift */; };
 		BECD107A2DB61E3A00C6E76C /* AddDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD10792DB61E3A00C6E76C /* AddDetailsView.swift */; };
 		BECD107C2DB61E6E00C6E76C /* AddDetailsViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */; };
+		BECD107E2DB62A3600C6E76C /* NavHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD107D2DB62A3600C6E76C /* NavHeader.swift */; };
 		BEE7C6482DAD52E20081EABF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */; };
 		BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6492DAD54400081EABF /* db.xcdatamodeld */; };
 		BEE7C6522DAD5BAD0081EABF /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */; };
@@ -97,6 +98,7 @@
 		BECD10772DB61DD200C6E76C /* AddDetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsViewPresenter.swift; sourceTree = "<group>"; };
 		BECD10792DB61E3A00C6E76C /* AddDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsView.swift; sourceTree = "<group>"; };
 		BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsViewContent.swift; sourceTree = "<group>"; };
+		BECD107D2DB62A3600C6E76C /* NavHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavHeader.swift; sourceTree = "<group>"; };
 		BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		BEE7C64A2DAD54400081EABF /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				BE7900EC2DB0358100D12D30 /* BaseTextView.swift */,
+				BECD107D2DB62A3600C6E76C /* NavHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				BE804A162DAC0B350021012A /* OnboardingViewContent.swift in Sources */,
 				BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */,
 				BECD106E2DB617DE00C6E76C /* AddBookView.swift in Sources */,
+				BECD107E2DB62A3600C6E76C /* NavHeader.swift in Sources */,
 				BECD10702DB6186C00C6E76C /* AddBookViewContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
