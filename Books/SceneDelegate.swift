@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum WindowCase {
+enum WindowCase: String {
     case registration, onboarding, main
 }
 
@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = PreviewView()
+        window?.rootViewController = Builder.createDetailsView()//PreviewView()
         window?.makeKeyAndVisible()
     }
     
@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         case .onboarding:
             self.window?.rootViewController = Builder.createOnboardingView()
         case .main:
-            print("main")
+            self.window?.rootViewController = Builder.createMainView()
         }
     }
 }

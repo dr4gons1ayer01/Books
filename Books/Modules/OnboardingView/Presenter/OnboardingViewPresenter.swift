@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol OnboardingViewPresenterProtocol: AnyObject {
     var mockData: [OnboardingData] { get }
@@ -22,7 +23,8 @@ class OnboardingViewPresenter: OnboardingViewPresenterProtocol {
     }
     
     func startApp() {
-        //TODO: save state to UD
+        //save state
+        UserDefaults.standard.set(WindowCase.main.rawValue, forKey: "state")
         NotificationCenter.default.post(name: .windowManager, object: nil, userInfo: [String.windowInfo : WindowCase.main])
     }
 }

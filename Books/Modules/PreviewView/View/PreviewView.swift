@@ -11,6 +11,7 @@ import Lottie
 class PreviewView: UIViewController {
     
     private let animationView = LottieAnimationView()
+    var state: WindowCase = .registration
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +30,17 @@ class PreviewView: UIViewController {
         animationView.frame = CGRect(x: 100, y: 100, width: 250, height: 250)
         animationView.animationSpeed = 1.3
         animationView.loopMode = .playOnce
+        
+        if let stateRaw = UserDefaults.standard.string(forKey: "state") {
+            if let state = WindowCase(rawValue: stateRaw) {
+                self.state = state
+            }
+        }
         animationView.play { finished in
             if finished {
-                //push to next vc
-                NotificationCenter.default.post(name: .windowManager, object: nil, userInfo: [String.windowInfo: WindowCase.registration])
+                NotificationCenter.default.post(name: .windowManager, object: nil, userInfo: [String.windowInfo: self.state])
             }
         }
     }
 }
+

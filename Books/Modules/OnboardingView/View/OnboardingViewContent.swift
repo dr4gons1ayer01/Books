@@ -57,11 +57,13 @@ struct OnboardingViewContent: View {
         }
         .padding(.horizontal, 30)
         .background(.bgMain)
-        .onChange(of: selected) { newValue in
-            if newValue == slides.count - 1 {
-                buttonText = "Начать пользоваться"
-            } else {
-                buttonText = "Далее"
+        .onChange(of: selected) { oldValue, newValue in
+            withAnimation {
+                if newValue == slides.count - 1 {
+                    buttonText = "Начать пользоваться"
+                } else {
+                    buttonText = "Далее"
+                }
             }
         }
     }
