@@ -9,11 +9,15 @@ import SwiftUI
 
 struct DetailsViewContent: View {
     @State private var bookNote: String = ""
+    @State private var offsetTop: CGFloat = 0
+    @State private var showTitle: Bool = false
+    @State private var commentDeleteOffsetX: CGFloat = 0
+    var bookName = "Война и мир"
     
     var body: some View {
         ZStack(alignment: .top) {
             HStack {
-               ///'backButton' back
+                ///'backButton' back
                 Button {
                     //action
                     
@@ -24,42 +28,54 @@ struct DetailsViewContent: View {
                         .frame(width: 24, height: 24)
                 }
                 Spacer()
-                Text("О Книге")
+                Text(showTitle ? bookName : "О Книге")
                     .font(type: .medium, size: 18)
                 Spacer()
                 ///'menuButton' menu
-                 Button {
-                     //action
-                     
-                 } label: {
-                     Image(systemName: "ellipsis")
-                         .resizable()
-                         .rotationEffect(.degrees(90))
-                         .scaledToFit()
-                         .frame(width: 24, height: 24)
-                 }
+                Button {
+                    //action
+                    
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .resizable()
+                        .rotationEffect(.degrees(90))
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                }
             }
             .padding(.top, 45)
             .foregroundStyle(.white)
             .zIndex(1)
             .padding(.horizontal, 30)
+            .background(
+                .bgMain.opacity(offsetTop < 0 ? (-offsetTop * 4.5 / 1000) : 0)
+            )
             
             ScrollView {
                 VStack(spacing: 29) {
                     ZStack(alignment: .top) {
                         GeometryReader { proxy in
                             let minY = proxy.frame(in: .global).minY
-                                Image(.cover)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(maxWidth: proxy.size.width)
-                                    .frame(height: 400 + (minY > 0 ? minY : 0))
-                                    .clipped()
-                                    .overlay {
-                                        Color(.purple).opacity(0.5)
+                            Image(.cover)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: proxy.size.width)
+                                .frame(height: 400 + (minY > 0 ? minY : 0))
+                                .clipped()
+                                .overlay {
+                                    Color(.purple).opacity(0.5)
+                                }
+                                .offset(y: minY > 0 ? -minY : 0)
+                                .onChange(of: minY) { newValue in
+                                    offsetTop = newValue
+                                    withAnimation {
+                                        if newValue < -229 {
+                                            showTitle = true
+                                        } else {
+                                            showTitle = false
+                                        }
                                     }
-                                    .offset(y: -minY)
-                                    //.clipped()
+                                }
                         }
                         .frame(height: 400)
                         
@@ -67,7 +83,7 @@ struct DetailsViewContent: View {
                             Image(.cover)
                             
                             VStack(spacing: 2) {
-                                Text("Война и мир")
+                                Text(bookName)
                                     .font(type: .bold, size: 20)
                                 Text("Лев Толстой")
                                     .font(type: .medium, size: 14)
@@ -98,7 +114,38 @@ struct DetailsViewContent: View {
                                 .foregroundStyle(.white)
                             
                             VStack(alignment: .leading, spacing: 14) {
-                                CommentView()
+                                ZStack(alignment: .trailing) {
+                                    CommentView()
+                                        .offset(x: -commentDeleteOffsetX)
+                                        .gesture(
+                                            DragGesture()
+                                                .onChanged({ value in
+                                                    if value.translation.width < -commentDeleteOffsetX {
+                                                        commentDeleteOffsetX = abs(value.translation.width)
+                                                    }
+                                                }).onEnded({ value in
+                                                    if value.translation.width < -100 {
+                                                        commentDeleteOffsetX = 150
+                                                    } else {
+                                                        commentDeleteOffsetX = 0
+                                                    }
+                                                })
+                                    )
+                                        .zIndex(1)
+                                    
+                                    Button {
+                                        //action
+                                        
+                                    } label: {
+                                        Image(systemName: "trash")
+                                            .resizable()
+                                            .foregroundStyle(.white)
+                                            .opacity(commentDeleteOffsetX > 0 ? (commentDeleteOffsetX / 100) : 0)
+                                            .scaledToFit()
+                                            .frame(width: 24, height: 24)
+                                            .padding(.trailing, 20)
+                                    }
+                                }
                                 CommentView()
                                 CommentView()
                                 
@@ -107,7 +154,7 @@ struct DetailsViewContent: View {
                         }
                     }
                     .padding(.horizontal, 30)
-                    .background(.bgMain)
+                    //                    .background(.bgMain)
                 }
                 .padding(.bottom, 30)
             }
