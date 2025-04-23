@@ -19,7 +19,15 @@ class AddBookView: UIViewController, AddBookViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = AddBookViewContent()
+        let contentView = AddBookViewContent() { direction in
+            switch direction {
+            case .forward:
+                let vc = Builder.createBookListView()
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .back:
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)

@@ -17,6 +17,7 @@ struct MainViewContent: View {
     @State private var selectedCategory: SelectedCategory = .willRead
     //var books: [Book]
     var name: String
+    var completion: () -> Void
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -32,7 +33,7 @@ struct MainViewContent: View {
                     .foregroundStyle(.white)
                     Spacer()
                     Button {
-                        //action
+                        completion()
                     } label: {
                         HStack(spacing: 10) {
                             Image(systemName: "book.closed")
@@ -68,7 +69,7 @@ struct MainViewContent: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 20) {
                                     Button {
-                                       //action
+                                        //action
                                     } label: {
                                         Image(.cover)
                                             .resizable()
@@ -76,7 +77,7 @@ struct MainViewContent: View {
                                             .clipShape(.rect(cornerRadius: 5))
                                     }
                                     Button {
-                                       //action
+                                        //action
                                     } label: {
                                         Image(.cover)
                                             .resizable()
@@ -84,7 +85,7 @@ struct MainViewContent: View {
                                             .clipShape(.rect(cornerRadius: 5))
                                     }
                                     Button {
-                                       //action
+                                        //action
                                     } label: {
                                         Image(.cover)
                                             .resizable()
@@ -142,33 +143,5 @@ struct MainViewContent: View {
         Text(text)
             .font(type: condition ? .black : .bold, size: condition ? 22 : 20)
             .foregroundStyle(condition ? .white : .appGrey)
-    }
-}
-
-#Preview {
-    MainViewContent(name: "Ivan Semenov")
-}
-
-struct BookItem: View {
-    //var book: Book
-    var body: some View {
-        HStack(spacing: 13) {
-            Image(.cover)
-                .resizable()
-                .frame(width: 64, height: 94)
-                .clipShape(.rect(cornerRadius: 3))
-            VStack(alignment: .leading, spacing: 9) {
-                VStack(alignment: .leading) {
-                    Text("Война и мир")
-                        .font(type: .bold, size: 14)
-                    Text("Лев Толстой")
-                        .font(type: .medium, size: 12)
-                        .foregroundStyle(.appGrey)
-                }
-                Text("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ...")
-                    .font(type: .medium, size: 14)
-            }
-            .foregroundStyle(.white)
-        }
     }
 }

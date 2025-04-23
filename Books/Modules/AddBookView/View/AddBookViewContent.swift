@@ -7,29 +7,31 @@
 
 import SwiftUI
 
+enum NavDirection {
+    case forward
+    case back
+}
+
 struct AddBookViewContent: View {
     @State private var bookName = ""
+    var completion: (NavDirection) -> Void
     
     var body: some View {
         VStack {
             NavHeader(title: "Добавить книгу") {
-                //action
-                
+                ///nav back
+                completion(.back)
             }
             Spacer()
             BaseTextView(placeholder: "название книги", text: $bookName)
             Spacer()
             OrangeButton(title: "Далее") {
-                //action
-                
+                //todo with request
+                completion(.forward)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.horizontal, 30)
         .background(.bgMain)
     }
-}
-
-#Preview {
-    AddBookViewContent()
 }

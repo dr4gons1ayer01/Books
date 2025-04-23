@@ -19,13 +19,28 @@ class MainView: UIViewController, MainViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = MainViewContent(name: presenter?.name ?? "")
+        let contentView = MainViewContent(name: presenter?.name ?? "") {
+            self.navToVC(book: nil)
+        }
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)
         content.view.frame = view.frame
         view.addSubview(content.view)
         content.didMove(toParent: self)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func navToVC(book: Book?) {
+        if let book {
+            // -> bookDetails
+            
+        } else {
+            // -> addBook
+            let vc = Builder.createAddBookView()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

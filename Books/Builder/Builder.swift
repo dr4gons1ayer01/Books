@@ -36,9 +36,10 @@ class Builder {
     }
     
     static func createMainView() -> UIViewController {
-        return self.createView(viewType: MainView.self) { view in
+        let mainVC = self.createView(viewType: MainView.self) { view in
             MainViewPresenter(view: view)
         }
+        return UINavigationController(rootViewController: mainVC)
     }
     
     static func createDetailsView() -> UIViewController {
