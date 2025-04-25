@@ -49,6 +49,8 @@
 		BECD107C2DB61E6E00C6E76C /* AddDetailsViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */; };
 		BECD107E2DB62A3600C6E76C /* NavHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD107D2DB62A3600C6E76C /* NavHeader.swift */; };
 		BEE3C0792DB8CC4C009B8FA5 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3C0782DB8CC4C009B8FA5 /* BookItem.swift */; };
+		BEE3C0812DBA7600009B8FA5 /* AddBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3C0802DBA7600009B8FA5 /* AddBookModel.swift */; };
+		BEE3C0842DBA7EF8009B8FA5 /* BookNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3C0832DBA7EF8009B8FA5 /* BookNetworkManager.swift */; };
 		BEE7C6482DAD52E20081EABF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */; };
 		BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6492DAD54400081EABF /* db.xcdatamodeld */; };
 		BEE7C6522DAD5BAD0081EABF /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */; };
@@ -101,6 +103,8 @@
 		BECD107B2DB61E6E00C6E76C /* AddDetailsViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsViewContent.swift; sourceTree = "<group>"; };
 		BECD107D2DB62A3600C6E76C /* NavHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavHeader.swift; sourceTree = "<group>"; };
 		BEE3C0782DB8CC4C009B8FA5 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
+		BEE3C0802DBA7600009B8FA5 /* AddBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookModel.swift; sourceTree = "<group>"; };
+		BEE3C0832DBA7EF8009B8FA5 /* BookNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNetworkManager.swift; sourceTree = "<group>"; };
 		BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		BEE7C64A2DAD54400081EABF /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 		BECD10622DB616AC00C6E76C /* AddBookView */ = {
 			isa = PBXGroup;
 			children = (
+				BEE3C0822DBA7ED7009B8FA5 /* Manager */,
+				BEE3C07F2DBA7598009B8FA5 /* Model */,
 				BECD106A2DB6177A00C6E76C /* View */,
 				BECD10652DB6175200C6E76C /* Presenter */,
 			);
@@ -507,6 +513,22 @@
 				BECD106F2DB6186C00C6E76C /* AddBookViewContent.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BEE3C07F2DBA7598009B8FA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEE3C0802DBA7600009B8FA5 /* AddBookModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEE3C0822DBA7ED7009B8FA5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BEE3C0832DBA7EF8009B8FA5 /* BookNetworkManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		BEE7C6442DAD52A00081EABF /* DataBaseManager */ = {
@@ -650,12 +672,14 @@
 				BE8049C72DA996490021012A /* Notification.Name.Ext.swift in Sources */,
 				BECD107C2DB61E6E00C6E76C /* AddDetailsViewContent.swift in Sources */,
 				BECD10722DB61B3700C6E76C /* BookListViewPresenter.swift in Sources */,
+				BEE3C0842DBA7EF8009B8FA5 /* BookNetworkManager.swift in Sources */,
 				BE34E1C82DAE918800E6E5FF /* MainViewContent.swift in Sources */,
 				BECD10762DB61BFA00C6E76C /* BookListViewContent.swift in Sources */,
 				BEE7C6592DAE47C90081EABF /* Book+CoreDataClass.swift in Sources */,
 				BEB0CDB02DA94E6800312F96 /* SceneDelegate.swift in Sources */,
 				BE8049E02DAA7E720021012A /* CustomFont.swift in Sources */,
 				BEE7C6482DAD52E20081EABF /* DataBaseManager.swift in Sources */,
+				BEE3C0812DBA7600009B8FA5 /* AddBookModel.swift in Sources */,
 				BEE7C6522DAD5BAD0081EABF /* Note+CoreDataClass.swift in Sources */,
 				BECD107A2DB61E3A00C6E76C /* AddDetailsView.swift in Sources */,
 				BEE7C6562DAE47480081EABF /* StorageManager.swift in Sources */,

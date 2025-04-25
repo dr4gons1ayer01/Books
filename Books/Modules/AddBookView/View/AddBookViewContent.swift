@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum NavDirection {
-    case forward
+    case forward(String)
     case back
 }
 
@@ -26,8 +26,8 @@ struct AddBookViewContent: View {
             BaseTextView(placeholder: "название книги", text: $bookName)
             Spacer()
             OrangeButton(title: "Далее") {
-                //todo with request
-                completion(.forward)
+                ///request with bookName
+                completion(.forward(bookName))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

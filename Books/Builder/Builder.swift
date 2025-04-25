@@ -54,9 +54,9 @@ class Builder {
         }
     }
     
-    static func createBookListView() -> UIViewController {
+    static func createBookListView(books: [BookModelItem]) -> UIViewController {
         return self.createView(viewType: BookListView.self) { view in
-            BookListViewPresenter(view: view)
+            BookListViewPresenter(view: view, bookList: books)
         }
     }
     
