@@ -51,6 +51,7 @@
 		BEE3C0792DB8CC4C009B8FA5 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3C0782DB8CC4C009B8FA5 /* BookItem.swift */; };
 		BEE3C0812DBA7600009B8FA5 /* AddBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3C0802DBA7600009B8FA5 /* AddBookModel.swift */; };
 		BEE3C0842DBA7EF8009B8FA5 /* BookNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3C0832DBA7EF8009B8FA5 /* BookNetworkManager.swift */; };
+		BEE3C0872DBB92D9009B8FA5 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BEE3C0862DBB92D9009B8FA5 /* SDWebImageSwiftUI */; };
 		BEE7C6482DAD52E20081EABF /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6472DAD52E20081EABF /* DataBaseManager.swift */; };
 		BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C6492DAD54400081EABF /* db.xcdatamodeld */; };
 		BEE7C6522DAD5BAD0081EABF /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7C64E2DAD5BAD0081EABF /* Note+CoreDataClass.swift */; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE3C0872DBB92D9009B8FA5 /* SDWebImageSwiftUI in Frameworks */,
 				BE8049BA2DA958890021012A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +594,7 @@
 			name = Books;
 			packageProductDependencies = (
 				BE8049B92DA958890021012A /* Lottie */,
+				BEE3C0862DBB92D9009B8FA5 /* SDWebImageSwiftUI */,
 			);
 			productName = Books;
 			productReference = BEB0CDAA2DA94E6800312F96 /* Books.app */;
@@ -623,6 +626,7 @@
 			mainGroup = BEB0CDA12DA94E6800312F96;
 			packageReferences = (
 				BE8049B82DA958890021012A /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				BEE3C0852DBB92D9009B8FA5 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = BEB0CDAB2DA94E6800312F96 /* Products */;
 			projectDirPath = "";
@@ -919,6 +923,14 @@
 				minimumVersion = 4.5.1;
 			};
 		};
+		BEE3C0852DBB92D9009B8FA5 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -926,6 +938,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BE8049B82DA958890021012A /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		BEE3C0862DBB92D9009B8FA5 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEE3C0852DBB92D9009B8FA5 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

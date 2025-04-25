@@ -20,6 +20,16 @@ class AddBookViewPresenter: AddBookViewPresenterProtocol {
     }
     
     func searchBook(by title: String) {
-        manager.searchBookRequest(q: title)
+        manager.searchBookRequest(q: title) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let books):
+                DispatchQueue.main.async {
+                    self.view?.moveToListView(books: books)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

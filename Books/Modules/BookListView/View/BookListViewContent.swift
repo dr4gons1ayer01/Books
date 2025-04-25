@@ -6,32 +6,30 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct BookListViewContent: View {
+    let books: [BookModelItem]
+    
     var body: some View {
         ZStack(alignment: .top) {
-            NavHeader(title: "Мартин Иден") {
+            NavHeader(title: books.first?.title ?? "-") {
                 
             }
             
-            ScrollView {
+            ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
                     Text("Результаты поиска")
                         .foregroundStyle(.white)
                         .font(type: .regular, size: 14)
                         .padding(.horizontal, 21)
                     VStack(alignment: .leading, spacing: 23) {
-                        
-                        BookListItem {
-                            
+                        ForEach(books, id: \.self) { book in
+                            BookListItem(book: book) {
+                                //action
+                                
+                            }
                         }
-                        BookListItem {
-                            
-                        }
-                        BookListItem {
-                            
-                        }
-                        
                     }
                 }
             }
@@ -43,28 +41,23 @@ struct BookListViewContent: View {
     }
 }
 
-#Preview {
-    BookListViewContent()
-}
-
 struct BookListItem: View {
-    var action: () -> Void
+    var book: BookModelItem
+    var completion: () -> Void
     
     var body: some View {
         Button {
-            action()
+            completion()
         } label: {
             HStack(alignment: .top, spacing: 13) {
-                Image(.cover)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 120)
-                    .clipShape(.rect(cornerRadius: 8))
+                ///book Image
+                BookCover(coverId: book.cover_i?.description)
+                
                 VStack(alignment: .leading) {
-                    Text("Мартин Иден")
+                    Text(book.title ?? "no title")
                         .foregroundStyle(.white)
                         .font(type: .black, size: 16)
-                    Text("Джек Лондон")
+                    Text(book.author_name?.first ?? "no author")
                         .foregroundStyle(.appGrey)
                         .font(type: .medium, size: 14)
                 }
@@ -74,6 +67,26 @@ struct BookListItem: View {
                     .foregroundStyle(.white)
                     .padding(.top, 10)
             }
+        }
+    }
+}
+
+struct BookCover: View {
+    var coverId: String?
+    
+    var body: some View {
+        if let coverId, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg") {
+            WebImage(url: url)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 120)
+                .clipShape(.rect(cornerRadius: 8))
+        } else {
+            Image(.cover)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 120)
+                .clipShape(.rect(cornerRadius: 8))
         }
     }
 }

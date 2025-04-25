@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct BookModel: Decodable {
+struct BookModel: Decodable, Hashable {
     let docs: [BookModelItem]
 }
 
-struct BookModelItem: Decodable {
+struct BookModelItem: Decodable, Hashable {
     let author_name: [String]?
     let cover_i: Int?
     let title: String?

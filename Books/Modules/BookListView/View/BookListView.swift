@@ -19,7 +19,7 @@ class BookListView: UIViewController, BookListViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = BookListViewContent()
+        let contentView = BookListViewContent(books: presenter?.bookList ?? [])
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)
