@@ -60,9 +60,9 @@ class Builder {
         }
     }
     
-    static func createAddDetailView() -> UIViewController {
+    static func createAddDetailView(book: BookModelItem) -> UIViewController {
         return self.createView(viewType: AddDetailsView.self) { view in
-            AddDetailsViewPresenter(view: view)
+            AddDetailsViewPresenter(view: view, book: book)
         }
     }
 }

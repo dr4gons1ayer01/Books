@@ -6,24 +6,36 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
+enum DetailPageState {
+    case back
+    case save
+}
 
 struct AddDetailsViewContent: View {
     @State private var bookName: String = ""
     @State private var bookDescription: String = ""
     @State private var isShowPlaceholder: Bool = true
+    var book: BookModelItem
+    var completion: (DetailPageState) -> Void
+    
+    init(book: BookModelItem, completion: @escaping (DetailPageState) -> Void) {
+        self.book = book
+        self.completion = completion
+        self._bookName = State(initialValue: book.title ?? "")
+        self._bookDescription = State(initialValue: "")
+    }
     
     var body: some View {
         VStack {
-            NavHeader(title: "Мартин Иден") {
-                //action
-                
+            NavHeader(title: book.title ?? "-") {
+                /// nav back
+                completion(.back)
             }
             VStack(spacing: 80) {
-                Image(.cover)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 130, height: 180)
-                    .clipShape(.rect(cornerRadius: 8))
+                BookCover(coverId: book.cover_i?.description,
+                          size: CGSize(width: 130, height: 180))
                     .overlay(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
                         Button {
                             //action
@@ -88,16 +100,12 @@ struct AddDetailsViewContent: View {
             }
             Spacer()
             OrangeButton(title: "Добавить") {
-                //action
-                
+                /// add -> save
+                completion(.save)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
         .padding(.horizontal, 30)
         .background(.bgMain)
     }
-}
-
-#Preview {
-    AddDetailsViewContent()
 }

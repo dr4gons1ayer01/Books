@@ -10,11 +10,13 @@ import SDWebImageSwiftUI
 
 struct BookListViewContent: View {
     let books: [BookModelItem]
+    var completion: (BookModelItem?) -> Void
     
     var body: some View {
         ZStack(alignment: .top) {
             NavHeader(title: books.first?.title ?? "-") {
-                
+                /// nav back
+                completion(nil)
             }
             
             ScrollView(.vertical, showsIndicators: false) {
@@ -26,8 +28,8 @@ struct BookListViewContent: View {
                     VStack(alignment: .leading, spacing: 23) {
                         ForEach(books, id: \.self) { book in
                             BookListItem(book: book) {
-                                //action
-                                
+                                ///nav -> AddDetailsView
+                                completion(book)
                             }
                         }
                     }
@@ -51,7 +53,8 @@ struct BookListItem: View {
         } label: {
             HStack(alignment: .top, spacing: 13) {
                 ///book Image
-                BookCover(coverId: book.cover_i?.description)
+                BookCover(coverId: book.cover_i?.description,
+                          size: CGSize(width: 80, height: 120))
                 
                 VStack(alignment: .leading) {
                     Text(book.title ?? "no title")
@@ -73,19 +76,20 @@ struct BookListItem: View {
 
 struct BookCover: View {
     var coverId: String?
+    let size: CGSize
     
     var body: some View {
         if let coverId, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverId)-M.jpg") {
             WebImage(url: url)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 80, height: 120)
+                .frame(width: size.width, height: size.height)
                 .clipShape(.rect(cornerRadius: 8))
         } else {
             Image(.cover)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 80, height: 120)
+                .frame(width: size.width, height: size.height)
                 .clipShape(.rect(cornerRadius: 8))
         }
     }

@@ -20,7 +20,17 @@ class AddDetailsView: UIViewController, AddDetailsViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = AddDetailsViewContent()
+        guard let book = presenter?.book else { return }
+        let contentView = AddDetailsViewContent(book: book) { [weak self] state in
+            guard let self = self else { return }
+            switch state {
+            case .back:
+                navigationController?.popViewController(animated: true)
+            case .save:
+                //todo 
+                print("Добавить")
+            }
+        }
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)

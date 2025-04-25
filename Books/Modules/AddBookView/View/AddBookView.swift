@@ -28,7 +28,7 @@ class AddBookView: UIViewController, AddBookViewProtocol {
                     self.presenter?.searchBook(by: book)
                 }
             case .back:
-                self.navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
             }
         }
         
