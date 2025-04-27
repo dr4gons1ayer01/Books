@@ -12,30 +12,36 @@ protocol AddDetailsViewProtocol: BaseViewProtocol {
     
 }
 
-class AddDetailsView: UIViewController, AddDetailsViewProtocol {
+protocol AddDetailsViewDelegate {
+    func saveBook()
+    func back()
+    func createText()
+}
+
+class AddDetailsView: UIViewController, AddDetailsViewProtocol, AddDetailsViewDelegate {
     typealias PresenterType = AddDetailsViewPresenterProtocol
     var presenter: PresenterType?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let book = presenter?.book else { return }
-        let contentView = AddDetailsViewContent(book: book) { [weak self] state in
-            guard let self = self else { return }
-            switch state {
-            case .back:
-                navigationController?.popViewController(animated: true)
-            case .save:
-                //todo 
-                print("Добавить")
-            }
-        }
+        let contentView = AddDetailsViewContent(book: book, delegate: self)
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)
         content.view.frame = view.frame
         view.addSubview(content.view)
         content.didMove(toParent: self)
+    }
+    
+    func saveBook() {
+        print("Добавить/Save")
+    }
+    func back() {
+        navigationController?.popViewController(animated: true)
+    }
+    func createText() {
+        presenter?.createBookDescription()
     }
 }

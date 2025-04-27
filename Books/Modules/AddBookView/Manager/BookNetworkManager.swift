@@ -41,7 +41,7 @@ class BookNetworkManager {
                 print(error.localizedDescription)
                 completion(.failure(error))
             }
-            print(String(decoding: data, as: UTF8.self))
+            //print(String(decoding: data, as: UTF8.self))
         }.resume()
     }
 }

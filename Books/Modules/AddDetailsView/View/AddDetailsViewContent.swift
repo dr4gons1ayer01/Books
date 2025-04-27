@@ -8,21 +8,16 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-enum DetailPageState {
-    case back
-    case save
-}
-
 struct AddDetailsViewContent: View {
     @State private var bookName: String = ""
     @State private var bookDescription: String = ""
     @State private var isShowPlaceholder: Bool = true
     var book: BookModelItem
-    var completion: (DetailPageState) -> Void
+    var delegate: AddDetailsViewDelegate
     
-    init(book: BookModelItem, completion: @escaping (DetailPageState) -> Void) {
+    init(book: BookModelItem, delegate: AddDetailsViewDelegate) {
         self.book = book
-        self.completion = completion
+        self.delegate = delegate
         self._bookName = State(initialValue: book.title ?? "")
         self._bookDescription = State(initialValue: "")
     }
@@ -31,7 +26,7 @@ struct AddDetailsViewContent: View {
         VStack {
             NavHeader(title: book.title ?? "-") {
                 /// nav back
-                completion(.back)
+                delegate.back()
             }
             VStack(spacing: 80) {
                 BookCover(coverId: book.cover_i?.description,
@@ -68,8 +63,8 @@ struct AddDetailsViewContent: View {
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
                                 Button {
-                                    //action
-                                    
+                                    ///create AI Text
+                                    delegate.createText()
                                 } label: {
                                     Image(systemName: "sparkles")
                                         .resizable()
@@ -101,7 +96,7 @@ struct AddDetailsViewContent: View {
             Spacer()
             OrangeButton(title: "Добавить") {
                 /// add -> save
-                completion(.save)
+                delegate.saveBook()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
