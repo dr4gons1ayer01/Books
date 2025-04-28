@@ -10,6 +10,7 @@
 		BE34E1C42DAE915900E6E5FF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C32DAE915900E6E5FF /* MainView.swift */; };
 		BE34E1C62DAE916C00E6E5FF /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */; };
 		BE34E1C82DAE918800E6E5FF /* MainViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */; };
+		BE71C8CA2DBF6ABD003EB62A /* AddDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8C92DBF6ABD003EB62A /* AddDetailsViewModel.swift */; };
 		BE7900ED2DB0358100D12D30 /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7900EC2DB0358100D12D30 /* BaseTextView.swift */; };
 		BE7A1A1B2DBE234A00AE4707 /* AddDetailsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A1A2DBE234A00AE4707 /* AddDetailsNetworkManager.swift */; };
 		BE8049BA2DA958890021012A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE8049B92DA958890021012A /* Lottie */; };
@@ -65,6 +66,7 @@
 		BE34E1C32DAE915900E6E5FF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BE34E1C52DAE916C00E6E5FF /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		BE34E1C72DAE918800E6E5FF /* MainViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewContent.swift; sourceTree = "<group>"; };
+		BE71C8C92DBF6ABD003EB62A /* AddDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsViewModel.swift; sourceTree = "<group>"; };
 		BE7900EC2DB0358100D12D30 /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
 		BE7A1A1A2DBE234A00AE4707 /* AddDetailsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsNetworkManager.swift; sourceTree = "<group>"; };
 		BE8049BC2DA9597A0021012A /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE71C8C82DBF6A9E003EB62A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE71C8C92DBF6ABD003EB62A /* AddDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BE7900EB2DB0352D00D12D30 /* View */ = {
@@ -473,6 +483,7 @@
 				BE7A1A192DBE232300AE4707 /* Manager */,
 				BECD10682DB6176A00C6E76C /* View */,
 				BECD10672DB6175E00C6E76C /* Presenter */,
+				BE71C8C82DBF6A9E003EB62A /* ViewModel */,
 			);
 			path = AddDetailsView;
 			sourceTree = "<group>";
@@ -710,6 +721,7 @@
 				BE804A122DAC07C60021012A /* OnboardingView.swift in Sources */,
 				BE804A162DAC0B350021012A /* OnboardingViewContent.swift in Sources */,
 				BEE7C64B2DAD54400081EABF /* db.xcdatamodeld in Sources */,
+				BE71C8CA2DBF6ABD003EB62A /* AddDetailsViewModel.swift in Sources */,
 				BECD106E2DB617DE00C6E76C /* AddBookView.swift in Sources */,
 				BECD107E2DB62A3600C6E76C /* NavHeader.swift in Sources */,
 				BECD10702DB6186C00C6E76C /* AddBookViewContent.swift in Sources */,

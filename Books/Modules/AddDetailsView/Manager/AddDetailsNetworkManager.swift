@@ -18,12 +18,8 @@ struct Message: Codable {
 }
 
 class AddDetailsNetworkManager {
-    //MARK: bothub
-    //let url = "https://bothub.chat/api/v2/openai/v1/chat/completions"
-    //let token = ""
     
-    //MARK: openai
-    let url = "https://api.openai.com/v1/chat/completions"
+    let url = "https://bothub.chat/api/v2/openai/v1/chat/completions"
     let token = ""
     
     func sendRequest(bookName: String) {
@@ -36,7 +32,7 @@ class AddDetailsNetworkManager {
         let requestBodyStruct = BotHubRequest(
             model: "gpt-4o",
             messages: [
-                Message(role: "user", content: "Опиши книгу \(bookName) в 3-5 предложениях.")
+                Message(role: "user", content: "Опиши книгу \(bookName) в 2 предложения.")
             ]
         )
         

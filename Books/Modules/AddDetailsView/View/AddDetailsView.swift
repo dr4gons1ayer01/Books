@@ -26,7 +26,9 @@ class AddDetailsView: UIViewController, AddDetailsViewProtocol, AddDetailsViewDe
         super.viewDidLoad()
         
         guard let book = presenter?.book else { return }
-        let contentView = AddDetailsViewContent(book: book, delegate: self)
+        guard let viewModel = presenter?.viewModel else { return }
+        
+        let contentView = AddDetailsViewContent(book: book, delegate: self, viewModel: viewModel)
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)
@@ -42,6 +44,7 @@ class AddDetailsView: UIViewController, AddDetailsViewProtocol, AddDetailsViewDe
         navigationController?.popViewController(animated: true)
     }
     func createText() {
+        //presenter?.viewModel.bookDescription = "qwerty"
         presenter?.createBookDescription()
     }
 }

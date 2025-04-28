@@ -10,16 +10,16 @@ import SDWebImageSwiftUI
 
 struct AddDetailsViewContent: View {
     @State private var bookName: String = ""
-    @State private var bookDescription: String = ""
     @State private var isShowPlaceholder: Bool = true
+    @ObservedObject var viewModel: AddDetailsViewModel
     var book: BookModelItem
     var delegate: AddDetailsViewDelegate
     
-    init(book: BookModelItem, delegate: AddDetailsViewDelegate) {
+    init(book: BookModelItem, delegate: AddDetailsViewDelegate, viewModel: AddDetailsViewModel) {
         self.book = book
-        self.delegate = delegate
         self._bookName = State(initialValue: book.title ?? "")
-        self._bookDescription = State(initialValue: "")
+        self.delegate = delegate
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -52,7 +52,7 @@ struct AddDetailsViewContent: View {
                     BaseTextView(placeholder: "Название", text: $bookName)
                     
                     ZStack(alignment: .topLeading) {
-                        TextEditor(text: $bookDescription)
+                        TextEditor(text: $viewModel.bookDescription)
                             .scrollContentBackground(.hidden)
                             .frame(height: 114)
                             .padding(.horizontal, 15)
@@ -77,7 +77,7 @@ struct AddDetailsViewContent: View {
                                         .clipped()
                                 }
                             }
-                            .onChange(of: bookDescription) { oldValue, newValue in
+                            .onChange(of: viewModel.bookDescription) { oldValue, newValue in
                                 if newValue.count > 0 {
                                     isShowPlaceholder = false
                                 } else {
