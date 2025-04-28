@@ -7,22 +7,12 @@
 
 import Foundation
 
-struct BotHubRequest: Encodable {
-    let model: String
-    let messages: [Message]
-}
-
-struct Message: Codable {
-    let role: String
-    let content: String
-}
-
 class AddDetailsNetworkManager {
     
     let url = "https://bothub.chat/api/v2/openai/v1/chat/completions"
     let token = ""
     
-    func sendRequest(bookName: String) {
+    func sendRequest(bookName: String, completion: @escaping (String) -> Void) {
         guard let url = URL(string: self.url) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -52,8 +42,13 @@ class AddDetailsNetworkManager {
                 print("No data received")
                 return
             }
-            
-            print(String(decoding: data, as: UTF8.self))
+            do {
+                let response = try JSONDecoder().decode(ChatResponse.self, from: data)
+                let description = response.choices[0].message.content
+                completion(description)
+            } catch {
+                print("Ошибка парсинга:", error.localizedDescription)
+            }
         }.resume()
     }
 }

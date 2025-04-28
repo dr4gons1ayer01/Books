@@ -24,6 +24,11 @@ class AddDetailsViewPresenter:  AddDetailsViewPresenterProtocol {
         self.book = book
     }
     func createBookDescription() {
-        manager.sendRequest(bookName: book.title ?? "")
+        manager.sendRequest(bookName: book.title ?? "") { [weak self] description in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.viewModel.bookDescription = description
+            }
+        }
     }
 }
