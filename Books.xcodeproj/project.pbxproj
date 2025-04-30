@@ -14,6 +14,7 @@
 		BE71C8CD2DBF90FC003EB62A /* BotHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8CC2DBF90FC003EB62A /* BotHubRequest.swift */; };
 		BE71C8CF2DBF9B9C003EB62A /* BookCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8CE2DBF9B9C003EB62A /* BookCover.swift */; };
 		BE71C8D22DBF9C76003EB62A /* BookListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8D12DBF9C76003EB62A /* BookListItem.swift */; };
+		BE71C8D52DBFAABF003EB62A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE71C8D42DBFAABF003EB62A /* ImagePickerView.swift */; };
 		BE7900ED2DB0358100D12D30 /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7900EC2DB0358100D12D30 /* BaseTextView.swift */; };
 		BE7A1A1B2DBE234A00AE4707 /* AddDetailsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A1A1A2DBE234A00AE4707 /* AddDetailsNetworkManager.swift */; };
 		BE8049BA2DA958890021012A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE8049B92DA958890021012A /* Lottie */; };
@@ -73,6 +74,7 @@
 		BE71C8CC2DBF90FC003EB62A /* BotHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotHubRequest.swift; sourceTree = "<group>"; };
 		BE71C8CE2DBF9B9C003EB62A /* BookCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCover.swift; sourceTree = "<group>"; };
 		BE71C8D12DBF9C76003EB62A /* BookListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListItem.swift; sourceTree = "<group>"; };
+		BE71C8D42DBFAABF003EB62A /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		BE7900EC2DB0358100D12D30 /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
 		BE7A1A1A2DBE234A00AE4707 /* AddDetailsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsNetworkManager.swift; sourceTree = "<group>"; };
 		BE8049BC2DA9597A0021012A /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 			path = Parts;
 			sourceTree = "<group>";
 		};
+		BE71C8D32DBFAA99003EB62A /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BE71C8D42DBFAABF003EB62A /* ImagePickerView.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		BE7900EB2DB0352D00D12D30 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +235,7 @@
 		BE8049C42DA9960F0021012A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BE71C8D32DBFAA99003EB62A /* ImagePicker */,
 				BEE7C65B2DAE4E000081EABF /* BookStatus */,
 				BE804A0A2DABFEFD0021012A /* Buttons */,
 				BE8049DD2DAA7E3D0021012A /* Modifiers */,
@@ -719,6 +730,7 @@
 				BE71C8CF2DBF9B9C003EB62A /* BookCover.swift in Sources */,
 				BE8049C32DA9932F0021012A /* FontManager.swift in Sources */,
 				BE8049E32DAA7FCE0021012A /* View.Ext.swift in Sources */,
+				BE71C8D52DBFAABF003EB62A /* ImagePickerView.swift in Sources */,
 				BE8049D62DAA57150021012A /* RegistrationViewPresenter.swift in Sources */,
 				BECD105C2DB248C000C6E76C /* DetailsView.swift in Sources */,
 				BECD105F2DB4235000C6E76C /* BookStatusButton.swift in Sources */,

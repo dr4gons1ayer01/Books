@@ -10,16 +10,22 @@ import SDWebImageSwiftUI
 
 struct AddDetailsViewContent: View {
     @State private var bookName: String = ""
+    @State private var bookCover: UIImage = .cover
+    @State private var bookCoverType: ImageType
+    
     @State private var isShowPlaceholder: Bool = true
+    @State private var isShowPicker: Bool = false
     @ObservedObject var viewModel: AddDetailsViewModel
+    
     var book: BookModelItem
     var delegate: AddDetailsViewDelegate
     
     init(book: BookModelItem, delegate: AddDetailsViewDelegate, viewModel: AddDetailsViewModel) {
         self.book = book
-        self._bookName = State(initialValue: book.title ?? "")
         self.delegate = delegate
         self.viewModel = viewModel
+        self._bookName = State(initialValue: book.title ?? "")
+        self._bookCoverType = State(initialValue: .network(book.cover_i?.description))
     }
     
     var body: some View {
@@ -29,12 +35,13 @@ struct AddDetailsViewContent: View {
                 delegate.back()
             }
             VStack(spacing: 80) {
-                BookCover(coverId: book.cover_i?.description,
-                          size: CGSize(width: 130, height: 180))
+                BookCover2(image: bookCoverType)
+                    .frame(width: 130, height: 180)
+                    .clipped()
                     .overlay(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
                         Button {
-                            //action
-                            
+                            ///picker
+                            isShowPicker.toggle()
                         } label: {
                             ZStack {
                                 Circle()
@@ -47,6 +54,12 @@ struct AddDetailsViewContent: View {
                             }
                             .offset(x: 6, y: -6)
                         }
+                        .sheet(isPresented: $isShowPicker) {
+                            ImagePickerView(image: $bookCover)
+                        }
+                    }
+                    .onChange(of: bookCover) { newValue in
+                        bookCoverType = .local(newValue)
                     }
                 VStack(spacing: 30) {
                     BaseTextView(placeholder: "Название", text: $bookName)
@@ -54,7 +67,7 @@ struct AddDetailsViewContent: View {
                     ZStack(alignment: .topLeading) {
                         TextEditor(text: $viewModel.bookDescription)
                             .scrollContentBackground(.hidden)
-                            .frame(height: 114)
+                            .frame(height: 224)
                             .padding(.horizontal, 15)
                             .padding(.vertical, 10)
                             .font(size: 16)

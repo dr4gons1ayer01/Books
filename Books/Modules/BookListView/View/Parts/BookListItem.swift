@@ -17,8 +17,8 @@ struct BookListItem: View {
         } label: {
             HStack(alignment: .top, spacing: 13) {
                 ///book Image
-                BookCover(coverId: book.cover_i?.description,
-                          size: CGSize(width: 80, height: 120))
+                BookCover2(image: .network(book.cover_i?.description))
+                    .frame(width: 80, height: 120)
                 
                 VStack(alignment: .leading) {
                     Text(book.title ?? "no title")
