@@ -108,9 +108,14 @@ struct AddDetailsViewContent: View {
             }
             Spacer()
             OrangeButton(title: "Добавить") {
-                /// add -> save
-                delegate.saveBook()
+                ///save book in db
+                delegate.saveBook(imageType: bookCoverType,
+                                  bookName: bookName, 
+                                  authorName: book.author_name?.first ?? "",
+                                  bookDescription: viewModel.bookDescription)
             }
+            .disabled(viewModel.bookDescription.count < 3 ? true : false)
+            .opacity(viewModel.bookDescription.count < 3 ? 0.5 : 1)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
         .padding(.horizontal, 30)

@@ -13,7 +13,7 @@ protocol AddDetailsViewProtocol: BaseViewProtocol {
 }
 
 protocol AddDetailsViewDelegate {
-    func saveBook()
+    func saveBook(imageType: ImageType, bookName: String, authorName: String, bookDescription: String)
     func back()
     func createText()
 }
@@ -37,8 +37,11 @@ class AddDetailsView: UIViewController, AddDetailsViewProtocol, AddDetailsViewDe
         content.didMove(toParent: self)
     }
     
-    func saveBook() {
-        print("Добавить/Save")
+    func saveBook(imageType: ImageType, bookName: String, authorName: String, bookDescription: String) {
+        presenter?.createBook(imageType: imageType,
+                              bookName: bookName,
+                              authorName: authorName,
+                              bookDescription: bookDescription)
     }
     func back() {
         navigationController?.popViewController(animated: true)

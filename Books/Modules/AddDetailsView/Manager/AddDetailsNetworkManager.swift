@@ -51,4 +51,22 @@ class AddDetailsNetworkManager {
             }
         }.resume()
     }
+    
+    func loadCover(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+        var request = URLRequest(url: url)
+        request.addValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            guard let data else {
+//                completion(.failure(error?.localizedDescription))
+                return
+            }
+            completion(.success(data))
+        }
+        .resume()
+    }
 }
