@@ -14,6 +14,7 @@ protocol MainViewPresenterProtocol: AnyObject {
     var readingBooks: [Book] { get }
     var unreadBooks: [Book] { get }
     var willReadBooks: [Book] { get }
+    func fetch()
 }
 
 class MainViewPresenter: MainViewPresenterProtocol {
@@ -29,13 +30,17 @@ class MainViewPresenter: MainViewPresenterProtocol {
     init(view: any MainViewProtocol) {
         self.view = view
         self.name = UserDefaults.standard.string(forKey: "name") ?? ""
-        bookService.fetchBooks()
-        setBooks(newValue: bookService.books)
+        fetch()
     }
     
     func setBooks(newValue: [Book]) {
         readingBooks = newValue.filter { $0.status == BookStatus.read.rawValue }
         unreadBooks = newValue.filter { $0.status == BookStatus.didRead.rawValue }
         willReadBooks = newValue.filter { $0.status == BookStatus.willRead.rawValue }
+    }
+    
+    func fetch() {
+        bookService.fetchBooks()
+        setBooks(newValue: bookService.books)
     }
 }

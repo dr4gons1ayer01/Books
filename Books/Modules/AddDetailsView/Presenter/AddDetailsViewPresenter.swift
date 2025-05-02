@@ -54,7 +54,7 @@ class AddDetailsViewPresenter:  AddDetailsViewPresenterProtocol {
                                        author: authorName,
                                        description: bookDescription,
                                        cover: data)
-            
+            completion(.success(true))
         case .network(let urlString):
             if let urlString, let url = URL(string: "https://covers.openlibrary.org/b/id/\(urlString)-M.jpg") {
                 networkManager.loadCover(url: url) { [weak self] result in

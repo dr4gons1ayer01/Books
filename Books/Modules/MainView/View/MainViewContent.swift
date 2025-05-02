@@ -15,11 +15,8 @@ enum SelectedCategory {
 struct MainViewContent: View {
     @State private var searchField = ""
     @State private var selectedCategory: SelectedCategory = .willRead
-    
+    @ObservedObject var viewModel: MainViewModel
     var name: String
-    var readingBooks: [Book]
-    var unreadBooks: [Book]
-    var willReadBooks: [Book]
     var completion: () -> Void
     
     var body: some View {
@@ -71,23 +68,11 @@ struct MainViewContent: View {
                                 .padding(.horizontal, 30)
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 20) {
-                                    ForEach(readingBooks) { book in
+                                    ForEach(viewModel.readingBooks) { book in
                                         Button {
                                             //action
                                         } label: {
-                                            if let image = Image.from(folderName: book.id,
-                                                                      fileName: "cover.jpeg") {
-                                                image
-                                                    .resizable()
-                                                    .frame(width: 143, height: 212)
-                                                    .clipShape(.rect(cornerRadius: 5))
-                                                
-                                            } else {
-                                                Image(.cover)
-                                                    .resizable()
-                                                    .frame(width: 143, height: 212)
-                                                    .clipShape(.rect(cornerRadius: 5))
-                                            }
+                                            CoverFromFileManager(book: book)
                                         }
                                     }
                                 }
