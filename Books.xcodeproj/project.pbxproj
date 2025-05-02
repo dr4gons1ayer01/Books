@@ -41,6 +41,7 @@
 		BE947CF12DC4C2390089B941 /* Image.Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE947CF02DC4C2390089B941 /* Image.Ext.swift */; };
 		BE947CF42DC4FAAE0089B941 /* CoverFromFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE947CF32DC4FAAE0089B941 /* CoverFromFileManager.swift */; };
 		BE947CF72DC4FC5B0089B941 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE947CF62DC4FC5B0089B941 /* MainViewModel.swift */; };
+		BE947CF92DC5189C0089B941 /* BookCoverForOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE947CF82DC5189C0089B941 /* BookCoverForOverlay.swift */; };
 		BEB0CDAE2DA94E6800312F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0CDAD2DA94E6800312F96 /* AppDelegate.swift */; };
 		BEB0CDB02DA94E6800312F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB0CDAF2DA94E6800312F96 /* SceneDelegate.swift */; };
 		BEB0CDB72DA94E6B00312F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB0CDB62DA94E6B00312F96 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		BE947CF02DC4C2390089B941 /* Image.Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.Ext.swift; sourceTree = "<group>"; };
 		BE947CF32DC4FAAE0089B941 /* CoverFromFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverFromFileManager.swift; sourceTree = "<group>"; };
 		BE947CF62DC4FC5B0089B941 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		BE947CF82DC5189C0089B941 /* BookCoverForOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverForOverlay.swift; sourceTree = "<group>"; };
 		BEB0CDAA2DA94E6800312F96 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB0CDAD2DA94E6800312F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB0CDAF2DA94E6800312F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 			children = (
 				BECD105E2DB4235000C6E76C /* BookStatusButton.swift */,
 				BECD10602DB615AC00C6E76C /* CommentView.swift */,
+				BE947CF82DC5189C0089B941 /* BookCoverForOverlay.swift */,
 			);
 			path = Parts;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				BE804A0C2DABFF2B0021012A /* OrangeButton.swift in Sources */,
 				BE947CF72DC4FC5B0089B941 /* MainViewModel.swift in Sources */,
 				BECD10742DB61B7500C6E76C /* BookListView.swift in Sources */,
+				BE947CF92DC5189C0089B941 /* BookCoverForOverlay.swift in Sources */,
 				BECD106C2DB6179000C6E76C /* AddBookViewPresenter.swift in Sources */,
 				BECD105A2DB2486F00C6E76C /* DetailsViewContent.swift in Sources */,
 				BE804A142DAC08400021012A /* OnboardingViewPresenter.swift in Sources */,

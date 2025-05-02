@@ -20,8 +20,8 @@ class MainView: UIViewController, MainViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = MainViewContent(viewModel: viewModel, name: presenter?.name ?? "") {
-            self.navToVC(book: nil)
+        let contentView = MainViewContent(viewModel: viewModel, name: presenter?.name ?? "") { book in
+            self.navToVC(book: book)
         }
         
         let content = UIHostingController(rootView: contentView)
@@ -44,7 +44,8 @@ class MainView: UIViewController, MainViewProtocol {
     private func navToVC(book: Book?) {
         if let book {
             // -> bookDetails
-            
+            let detailsVC = Builder.createDetailsView(book: book)
+            navigationController?.pushViewController(detailsVC, animated: true)
         } else {
             // -> addBook
             let vc = Builder.createAddBookView()

@@ -17,7 +17,7 @@ struct MainViewContent: View {
     @State private var selectedCategory: SelectedCategory = .willRead
     @ObservedObject var viewModel: MainViewModel
     var name: String
-    var completion: () -> Void
+    var completion: (Book?) -> Void
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -33,7 +33,7 @@ struct MainViewContent: View {
                     .foregroundStyle(.white)
                     Spacer()
                     Button {
-                        completion()
+                        completion(nil)
                     } label: {
                         HStack(spacing: 10) {
                             Image(systemName: "book.closed")
@@ -70,7 +70,7 @@ struct MainViewContent: View {
                                 HStack(spacing: 20) {
                                     ForEach(viewModel.readingBooks) { book in
                                         Button {
-                                            //action
+                                            completion(book)
                                         } label: {
                                             CoverFromFileManager(book: book)
                                         }

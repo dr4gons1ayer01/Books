@@ -12,7 +12,10 @@ struct DetailsViewContent: View {
     @State private var offsetTop: CGFloat = 0
     @State private var showTitle: Bool = false
     @State private var commentDeleteOffsetX: CGFloat = 0
-    var bookName = "Война и мир"
+    var book: Book?
+    var bookName: String {
+        book?.name ?? ""
+    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -56,8 +59,8 @@ struct DetailsViewContent: View {
                     ZStack(alignment: .top) {
                         GeometryReader { proxy in
                             let minY = proxy.frame(in: .global).minY
-                            Image(.cover)
-                                .resizable()
+                            ///imageOverlay
+                            BookCoverForOverlay(book: book!)
                                 .scaledToFill()
                                 .frame(maxWidth: proxy.size.width)
                                 .frame(height: 400 + (minY > 0 ? minY : 0))
@@ -80,12 +83,12 @@ struct DetailsViewContent: View {
                         .frame(height: 400)
                         
                         VStack(spacing: 15) {
-                            Image(.cover)
+                            CoverFromFileManager(book: book!)
                             
                             VStack(spacing: 2) {
                                 Text(bookName)
                                     .font(type: .bold, size: 20)
-                                Text("Лев Толстой")
+                                Text(book?.author ?? "")
                                     .font(type: .medium, size: 14)
                             }
                             .foregroundStyle(.white)
@@ -103,7 +106,7 @@ struct DetailsViewContent: View {
                             Text("Описание")
                                 .font(type: .black, size: 18)
                                 .foregroundStyle(.white)
-                            Text("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo")
+                            Text(book?.bookDescription ?? "")
                                 .font(type: .medium, size: 14)
                                 .foregroundStyle(.appGrey)
                         }
