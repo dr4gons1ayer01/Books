@@ -11,7 +11,7 @@ protocol AddDetailsViewPresenterProtocol: AnyObject {
     var book: BookModelItem { get }
     var viewModel: AddDetailsViewModel { get set }
     func createBookDescription()
-    func createBook(imageType: ImageType, bookName: String, authorName: String, bookDescription: String)
+    func createBook(imageType: ImageType, bookName: String, authorName: String, bookDescription: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class AddDetailsViewPresenter:  AddDetailsViewPresenterProtocol {
@@ -35,14 +35,19 @@ class AddDetailsViewPresenter:  AddDetailsViewPresenterProtocol {
         }
     }
     
-    func createBook(imageType: ImageType, bookName: String, authorName: String, bookDescription: String) {
+    func createBook(
+        imageType: ImageType,
+        bookName: String,
+        authorName: String,
+        bookDescription: String,
+        completion: @escaping (Result<Bool, Error>) -> Void
+    ) {
         // URL -> download -> save
         // UIImage -> save
         
         switch imageType {
         case .local(let uIImage):
             guard let data = uIImage.jpegData(compressionQuality: 1) else {
-                print("не уалось конвертировать UIImage в Data")
                 return
             }
             dataBaseManager.createBook(name: bookName,
@@ -52,16 +57,20 @@ class AddDetailsViewPresenter:  AddDetailsViewPresenterProtocol {
             
         case .network(let urlString):
             if let urlString, let url = URL(string: "https://covers.openlibrary.org/b/id/\(urlString)-M.jpg") {
-                networkManager.loadCover(url: url) { result in
+                networkManager.loadCover(url: url) { [weak self] result in
+                    guard let self = self else { return }
                     switch result {
                     case .success(let data):
-                        print(1)
                         self.dataBaseManager.createBook(name: bookName,
                                                         author: authorName,
                                                         description: bookDescription,
                                                         cover: data)
+                        completion(.success(true))
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        let _ = error as? SaveError
+                        DispatchQueue.main.async {
+                            self.viewModel.isAddError = true
+                        }
                     }
                 }
             }

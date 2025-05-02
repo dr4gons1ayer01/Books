@@ -120,5 +120,10 @@ struct AddDetailsViewContent: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
         .padding(.horizontal, 30)
         .background(.bgMain)
+        .alert(isPresented: $viewModel.isAddError) {
+            Alert(title: Text("Ошибка"),
+                  message: Text("При сохранении обложки. Выберите другую"),
+                  dismissButton: .default(Text("Ok")))
+        }
     }
 }

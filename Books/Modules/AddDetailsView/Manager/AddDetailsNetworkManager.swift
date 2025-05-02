@@ -58,11 +58,18 @@ class AddDetailsNetworkManager {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
-                print(error?.localizedDescription)
+                completion(.failure(SaveError.networkError))
                 return
             }
+            
+            guard let httpResp = response as? HTTPURLResponse,
+                  httpResp.statusCode == 200 else {
+                completion(.failure(SaveError.missingCover))
+                return
+            }
+            
             guard let data else {
-//                completion(.failure(error?.localizedDescription))
+                completion(.failure(SaveError.missingData))
                 return
             }
             completion(.success(data))

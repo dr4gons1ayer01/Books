@@ -20,7 +20,7 @@ extension Book {
         return NSFetchRequest<Book>(entityName: "Book")
     }
 
-    @NSManaged public var id: String?
+    @NSManaged public var id: String
     @NSManaged public var date: Date?
     @NSManaged public var name: String?
     @NSManaged public var author: String?

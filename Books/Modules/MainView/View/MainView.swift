@@ -19,7 +19,10 @@ class MainView: UIViewController, MainViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = MainViewContent(name: presenter?.name ?? "") {
+        let contentView = MainViewContent(name: presenter?.name ?? "",
+                                          readingBooks: presenter?.readingBooks ?? [],
+                                          unreadBooks: presenter?.unreadBooks ?? [],
+                                          willReadBooks: presenter?.willReadBooks ?? []) {
             self.navToVC(book: nil)
         }
         

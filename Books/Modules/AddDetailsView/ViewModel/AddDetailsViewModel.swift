@@ -9,4 +9,5 @@ import Foundation
 
 class AddDetailsViewModel: ObservableObject {
     @Published var bookDescription: String = ""
+    @Published var isAddError: Bool = false
 }
