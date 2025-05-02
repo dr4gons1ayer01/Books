@@ -6,28 +6,42 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct AddDetailsViewContent: View {
     @State private var bookName: String = ""
-    @State private var bookDescription: String = ""
+    @State private var bookCover: UIImage = .cover
+    @State private var bookCoverType: ImageType
+    
     @State private var isShowPlaceholder: Bool = true
+    @State private var isShowPicker: Bool = false
+    @ObservedObject var viewModel: AddDetailsViewModel
+    
+    var book: BookModelItem
+    var delegate: AddDetailsViewDelegate
+    
+    init(book: BookModelItem, delegate: AddDetailsViewDelegate, viewModel: AddDetailsViewModel) {
+        self.book = book
+        self.delegate = delegate
+        self.viewModel = viewModel
+        self._bookName = State(initialValue: book.title ?? "")
+        self._bookCoverType = State(initialValue: .network(book.cover_i?.description))
+    }
     
     var body: some View {
         VStack {
-            NavHeader(title: "Мартин Иден") {
-                //action
-                
+            NavHeader(title: book.title ?? "-") {
+                /// nav back
+                delegate.back()
             }
             VStack(spacing: 80) {
-                Image(.cover)
-                    .resizable()
-                    .scaledToFill()
+                BookCover2(image: bookCoverType)
                     .frame(width: 130, height: 180)
-                    .clipShape(.rect(cornerRadius: 8))
+                    .clipped()
                     .overlay(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
                         Button {
-                            //action
-                            
+                            ///picker
+                            isShowPicker.toggle()
                         } label: {
                             ZStack {
                                 Circle()
@@ -40,14 +54,20 @@ struct AddDetailsViewContent: View {
                             }
                             .offset(x: 6, y: -6)
                         }
+                        .sheet(isPresented: $isShowPicker) {
+                            ImagePickerView(image: $bookCover)
+                        }
+                    }
+                    .onChange(of: bookCover) { newValue in
+                        bookCoverType = .local(newValue)
                     }
                 VStack(spacing: 30) {
                     BaseTextView(placeholder: "Название", text: $bookName)
                     
                     ZStack(alignment: .topLeading) {
-                        TextEditor(text: $bookDescription)
+                        TextEditor(text: $viewModel.bookDescription)
                             .scrollContentBackground(.hidden)
-                            .frame(height: 114)
+                            .frame(height: 224)
                             .padding(.horizontal, 15)
                             .padding(.vertical, 10)
                             .font(size: 16)
@@ -56,8 +76,8 @@ struct AddDetailsViewContent: View {
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
                                 Button {
-                                    //action
-                                    
+                                    ///create AI Text
+                                    delegate.createText()
                                 } label: {
                                     Image(systemName: "sparkles")
                                         .resizable()
@@ -70,7 +90,7 @@ struct AddDetailsViewContent: View {
                                         .clipped()
                                 }
                             }
-                            .onChange(of: bookDescription) { oldValue, newValue in
+                            .onChange(of: viewModel.bookDescription) { oldValue, newValue in
                                 if newValue.count > 0 {
                                     isShowPlaceholder = false
                                 } else {
@@ -88,16 +108,22 @@ struct AddDetailsViewContent: View {
             }
             Spacer()
             OrangeButton(title: "Добавить") {
-                //action
-                
+                ///save book in db
+                delegate.saveBook(imageType: bookCoverType,
+                                  bookName: bookName, 
+                                  authorName: book.author_name?.first ?? "",
+                                  bookDescription: viewModel.bookDescription)
             }
+            .disabled(viewModel.bookDescription.count < 3 ? true : false)
+            .opacity(viewModel.bookDescription.count < 3 ? 0.5 : 1)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: Alignment(horizontal: .leading, vertical: .top))
         .padding(.horizontal, 30)
         .background(.bgMain)
+        .alert(isPresented: $viewModel.isAddError) {
+            Alert(title: Text("Ошибка"),
+                  message: Text("При сохранении обложки. Выберите другую"),
+                  dismissButton: .default(Text("Ok")))
+        }
     }
-}
-
-#Preview {
-    AddDetailsViewContent()
 }

@@ -19,7 +19,15 @@ class BookListView: UIViewController, BookListViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentView = BookListViewContent()
+        let contentView = BookListViewContent(books: presenter?.bookList ?? []) { [weak self] book in
+            guard let self = self else { return }
+            if let book {
+                let detailVC = Builder.createAddDetailView(book: book)
+                navigationController?.pushViewController(detailVC, animated: true)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
+        }
         
         let content = UIHostingController(rootView: contentView)
         addChild(content)

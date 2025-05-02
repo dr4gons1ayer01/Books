@@ -6,32 +6,32 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct BookListViewContent: View {
+    let books: [BookModelItem]
+    var completion: (BookModelItem?) -> Void
+    
     var body: some View {
         ZStack(alignment: .top) {
-            NavHeader(title: "Мартин Иден") {
-                
+            NavHeader(title: books.first?.title ?? "-") {
+                /// nav back
+                completion(nil)
             }
             
-            ScrollView {
+            ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
                     Text("Результаты поиска")
                         .foregroundStyle(.white)
                         .font(type: .regular, size: 14)
                         .padding(.horizontal, 21)
                     VStack(alignment: .leading, spacing: 23) {
-                        
-                        BookListItem {
-                            
+                        ForEach(books, id: \.self) { book in
+                            BookListItem(book: book) {
+                                ///nav -> AddDetailsView
+                                completion(book)
+                            }
                         }
-                        BookListItem {
-                            
-                        }
-                        BookListItem {
-                            
-                        }
-                        
                     }
                 }
             }
@@ -40,40 +40,5 @@ struct BookListViewContent: View {
         }
         .padding(.horizontal, 30)
         .background(.bgMain)
-    }
-}
-
-#Preview {
-    BookListViewContent()
-}
-
-struct BookListItem: View {
-    var action: () -> Void
-    
-    var body: some View {
-        Button {
-            action()
-        } label: {
-            HStack(alignment: .top, spacing: 13) {
-                Image(.cover)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 120)
-                    .clipShape(.rect(cornerRadius: 8))
-                VStack(alignment: .leading) {
-                    Text("Мартин Иден")
-                        .foregroundStyle(.white)
-                        .font(type: .black, size: 16)
-                    Text("Джек Лондон")
-                        .foregroundStyle(.appGrey)
-                        .font(type: .medium, size: 14)
-                }
-                .padding(.top, 10)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(.white)
-                    .padding(.top, 10)
-            }
-        }
     }
 }

@@ -36,14 +36,15 @@ class Builder {
     }
     
     static func createMainView() -> UIViewController {
-        return self.createView(viewType: MainView.self) { view in
+        let mainVC = self.createView(viewType: MainView.self) { view in
             MainViewPresenter(view: view)
         }
+        return UINavigationController(rootViewController: mainVC)
     }
     
-    static func createDetailsView() -> UIViewController {
+    static func createDetailsView(book: Book) -> UIViewController {
         return self.createView(viewType: DetailsView.self) { view in
-            DetailsViewPresenter(view: view)
+            DetailsViewPresenter(view: view, book: book)
         }
     }
     
@@ -53,15 +54,15 @@ class Builder {
         }
     }
     
-    static func createBookListView() -> UIViewController {
+    static func createBookListView(books: [BookModelItem]) -> UIViewController {
         return self.createView(viewType: BookListView.self) { view in
-            BookListViewPresenter(view: view)
+            BookListViewPresenter(view: view, bookList: books)
         }
     }
     
-    static func createAddDetailView() -> UIViewController {
+    static func createAddDetailView(book: BookModelItem) -> UIViewController {
         return self.createView(viewType: AddDetailsView.self) { view in
-            AddDetailsViewPresenter(view: view)
+            AddDetailsViewPresenter(view: view, book: book)
         }
     }
 }
